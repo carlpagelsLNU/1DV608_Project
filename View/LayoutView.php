@@ -1,7 +1,7 @@
 <?php
 
 class LayoutView {
-	public function render(DateTimeView $dt, HitCounterView $hcv, MessageView $mv) {
+	public function render(MessageView $mv) {
 
 	echo '<!DOCTYPE html>
       <html>
@@ -14,7 +14,7 @@ class LayoutView {
 				html, body {height:100%; margin:0; padding:0;}
 				#page-background {position:fixed; top:0; left:0; width:100%; height:100%;}
 				#viewCount {position:fixed; bottom:0; right:0; width: 300px; text-align:right; padding:10px;}
-				#Links {position:relative; width: 100% margin:0 auto; text-align:left; padding:10px;}
+				#Links {position:relative; padding:10px;}
 				#WelcomeMessage {position:relative; width: 300px; text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px;}
 				ul {
 				    list-style-type: none;
@@ -46,7 +46,7 @@ class LayoutView {
 	<div id="page-background"><img src="./data/background/backgroundImage.jpg" width="100%" height="100%" alt="Smile"></div>
 	    <body>
         <div id="viewCount">
-         ' . ' Antal besökare: ' . $hcv->showHitCount() . '
+         ' . ' Antal besökare: ' . $mv->showHitCount() . '
           </div>
           <div id="Links">
        	    <ul>
@@ -57,7 +57,7 @@ class LayoutView {
 			</ul>
           </div>
           <div id="WelcomeMessage">
-          ' . $mv->showWelcomeMessage() . '
+          ' . $mv->showLoginForm() . '
 
           </div>
          </body>

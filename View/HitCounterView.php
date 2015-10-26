@@ -3,15 +3,15 @@
 class HitCounterView {
 
 	private $modelHitCounter;
-	private $maincontroller;
+	private $hitCountController;
 
-	public function __construct(MainController $maincontroller, ModelHitCounter $modelHitCounter) {
-		$this->maincontroller = $maincontroller;
+	public function __construct(HitCountController $hitCountController, ModelHitCounter $modelHitCounter) {
+		$this->hitCountController = $hitCountController;
 		$this->modelHitCounter = $modelHitCounter;
 	}
 
-	public function showHitCount() {
-		$this->maincontroller->increaseViewers();
+	public function getHitCount() {
+		$this->hitCountController->increaseViewers();
 		return $this->modelHitCounter->getViewers();
 	}
 	

@@ -1,26 +1,38 @@
 <?php
+session_start();
 
-date_default_timezone_set('Europe/Stockholm'); // Set the default time zone
 //INCLUDE THE FILES NEEDED...
-require_once('view/LoginView.php');
-require_once('view/DateTimeView.php');
 require_once('view/LayoutView.php');
+require_once('view/LoginView.php');
 require_once('view/HitCounterView.php');
+require_once('view/OrbackView.php');
+require_once('view/PagelsView.php');
+require_once('view/VonSchantzView.php');
+require_once('view/WelcomeView.php');
 require_once('view/MessageView.php');
+
 require_once('model/ModelHitCounter.php');
-require_once('controller/MainController.php');
+require_once('model/LoginModel.php');
+
+require_once('controller/HitCountController.php');
+require_once('controller/LoginController.php');
 
 // Initiate Models
 $modelHitCounter = new ModelHitCounter();
+$loginModel = new LoginModel();
 
 // Initiate Controllers
-$mainController = new MainController($modelHitCounter);
+$hitCountController = new HitCountController($modelHitCounter);
+$loginController = new LoginController($loginModel);
 
 // Initiate views
-$dt = new DateTimeView();
 $lv = new LayoutView();
-$l = new LoginView();
-$vcv = new HitCounterView($mainController, $modelHitCounter);
-$wmv = new MessageView();
+$l = new LoginView($loginController);
+$ov = new OrbackView();
+$pv = new PagelsView();
+$vsv = new VonSchantzView();
+$wm = new WelcomeView();
+$hcv = new HitCounterView($hitCountController, $modelHitCounter);
+$wmv = new MessageView($l, $hcv, $ov, $pv, $vsv, $wm);
 
-$lv->render($dt, $vcv, $wmv);
+$lv->render($wmv);

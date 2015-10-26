@@ -1,6 +1,6 @@
 <?php 
 
-class MainController {
+class HitCountController {
 
 	private $mhc;
 	

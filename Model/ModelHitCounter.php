@@ -3,7 +3,7 @@
 class ModelHitCounter {
 
 
-	public function increaseViewcount($viewers) {
+	public function increaseViewcount() {
 			$file = fopen("./data/hitCount.txt", "r"); // Open file in read mode
 			$viewers = fgets($file, 1000); // Get view count
 			fclose($file); 

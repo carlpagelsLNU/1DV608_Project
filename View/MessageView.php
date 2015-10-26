@@ -2,48 +2,44 @@
 
 
 class MessageView {
+  private $loginView;
+  private $hitCounterView;
+  private $orbackView;
+  private $pagelsView;
+  private $vonSchantzView;
+  private $welcomeView;
+
+  public function __construct(LoginView $loginView, HitCounterView $hitCounterView, OrbackView $orbackView, PagelsView $pagelsView, VonSchantzView $vonSchantzView, WelcomeView $welcomeView) {
+    $this->loginView = $loginView;
+    $this->hitCounterView = $hitCounterView;
+    $this->orbackView = $orbackView;
+    $this->pagelsView = $pagelsView;
+    $this->vonScahntzView = $vonSchantzView;
+    $this->welcomeView = $welcomeView;
+  }
+
+  public function showHitCount() {
+    return $this->hitCounterView->getHitCount();
+  }
 	
 	public function showWelcomeMessage() {
-		return '<p>' . '<b>Välkommen till Pagels.se, tills information för denna sida skapats fylls den av lorem ipsum:</b>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-           nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-           mollit anim id est laborum</p>' . '</p>';
+		return $this->welcomeView->getWelcomeMessage();
 	}
 
 	public function showOrbackMessage() {
-
+      return $this->orbackView->getOrbackInfo();
 	}
 
 	public function showPagelsMessage() {
-		return '<p>' . '<b>Välkommen till Pagels.se, tills information för denna sida skapats fylls den av lorem ipsum:</b>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-           nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-           mollit anim id est laborum</p>' . '</p>';
+		return $this->pagelsView->getPagelsInfo();
 	}
 
 	public function showVonSchantzMessage() {
-		return '<p>' . '<b>Välkommen till Pagels.se, tills information för denna sida skapats fylls den av lorem ipsum:</b>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-           nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-           mollit anim id est laborum</p>' . '</p>';
+		return $this->vonSchantzView->getVonSchantzInfo();
 	}
 
 	public function showLoginForm() {
+    return $this->loginView->getLoginForm();
 
 	}
 
