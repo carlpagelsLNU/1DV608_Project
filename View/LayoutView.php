@@ -2,6 +2,9 @@
 
 class LayoutView {
 	public function render(MessageView $mv) {
+		$mainController = new MainController($mv);
+		$mainController->isClicked();
+		$message = $mv->getMessage();
 
 	echo '<!DOCTYPE html>
       <html>
@@ -50,14 +53,11 @@ class LayoutView {
           </div>
           <div id="Links">
        	    <ul>
-			  <li><a href="#pagels">Pagels släktforskning</a></li>
-			  <li><a href="#vonSchantz">von Schantz släktforskning</a></li>
-			  <li><a href="#orback">Information om Örbäck</a></li>
-			  <li><a href="#login">Logga in</a></li>
+			  ' . $mv->getLinks() . '
 			</ul>
           </div>
           <div id="WelcomeMessage">
-          ' . $mv->showLoginForm() . '
+          ' . $message . '
 
           </div>
          </body>
@@ -65,9 +65,3 @@ class LayoutView {
     ';
 	}
 }
-
-
-
-// . "<p><a href='?'>Släktforskning Pagels</a></p>" 
-      //  	. "<p><a href='?'>Släktforskning von Schantz</a></p>" 
-      //  	. "<p><a href='?'>Fakta Örbäckshuset</a></p>" 

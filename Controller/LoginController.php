@@ -9,12 +9,12 @@ class LoginController {
 	}
 
 	public function validateUser($user, $password) {
+
 		if($user == 'Lena' && $password == 'Pagels') {
 			$this->setSessionTrue();
-			$this->setMessage("Correct information");
 		}
 		else {
-			$this->setMessage("Wrong information");
+			$this->setMessage("Fel inloggningsuppgifter");
 		}
 	}
 

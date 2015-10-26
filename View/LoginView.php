@@ -59,7 +59,7 @@ class LoginView {
 	private function generateLogoutForm() {
 		return '
 			<form  method="post" >
-				<input type="submit" name="' . self::$logout . '" value="logout"/>
+				<input type="submit" name="' . self::$logout . '" value="Logga ut"/>
 			</form>
 		';
 	}

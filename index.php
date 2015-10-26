@@ -16,6 +16,7 @@ require_once('model/LoginModel.php');
 
 require_once('controller/HitCountController.php');
 require_once('controller/LoginController.php');
+require_once('controller/MainController.php');
 
 // Initiate Models
 $modelHitCounter = new ModelHitCounter();
@@ -34,5 +35,7 @@ $vsv = new VonSchantzView();
 $wm = new WelcomeView();
 $hcv = new HitCounterView($hitCountController, $modelHitCounter);
 $wmv = new MessageView($l, $hcv, $ov, $pv, $vsv, $wm);
+
+$mainController = new MainController($wmv);
 
 $lv->render($wmv);

@@ -8,39 +8,51 @@ class MessageView {
   private $pagelsView;
   private $vonSchantzView;
   private $welcomeView;
+  private $message;
 
-  public function __construct(LoginView $loginView, HitCounterView $hitCounterView, OrbackView $orbackView, PagelsView $pagelsView, VonSchantzView $vonSchantzView, WelcomeView $welcomeView) {
+  public function __construct(LoginView $loginView, HitCounterView $hitCounterView, OrbackView $orbackView, 
+    PagelsView $pagelsView, VonSchantzView $vonSchantzView, WelcomeView $welcomeView) {
     $this->loginView = $loginView;
     $this->hitCounterView = $hitCounterView;
     $this->orbackView = $orbackView;
     $this->pagelsView = $pagelsView;
-    $this->vonScahntzView = $vonSchantzView;
+    $this->vonSchantzView = $vonSchantzView;
     $this->welcomeView = $welcomeView;
+    $message = $this->setWelcomeMessage();
   }
 
   public function showHitCount() {
     return $this->hitCounterView->getHitCount();
   }
+
+  public function getMessage() {
+    return $this->message;
+  }
 	
-	public function showWelcomeMessage() {
-		return $this->welcomeView->getWelcomeMessage();
+	public function setWelcomeMessage() {
+		  $this->message = $this->welcomeView->getWelcomeMessage();
 	}
 
-	public function showOrbackMessage() {
-      return $this->orbackView->getOrbackInfo();
+	public function setOrbackMessage() {
+      $this->message = $this->orbackView->getOrbackInfo();
 	}
 
-	public function showPagelsMessage() {
-		return $this->pagelsView->getPagelsInfo();
+	public function setPagelsMessage() {
+		$this->message = $this->pagelsView->getPagelsInfo();
 	}
 
-	public function showVonSchantzMessage() {
-		return $this->vonSchantzView->getVonSchantzInfo();
+	public function setVonSchantzMessage() {
+		$this->message = $this->vonSchantzView->getVonSchantzInfo();
 	}
 
-	public function showLoginForm() {
-    return $this->loginView->getLoginForm();
+	public function setLoginForm() {
+    $this->message = $this->loginView->getLoginForm();
 
 	}
+
+  public function getLinks() {
+    $mainController = new MainController($this);
+   return $mainController->getLinks();
+  }
 
 }
