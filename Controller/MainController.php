@@ -6,11 +6,19 @@ class MainController {
 	private $vonSchantzLink = 'vonSchantzLink';
 	private $orbackLink = 'orbackLink';
 	private $loginLink = 'loginLink';
+	private $editButton = 'editButton';
+	private $saveButton = 'saveButton';
 	private $messageView;
 	
 	public function getLinks() {
-		return "<li>" . $this->getWelcomeLink() . "</li>" . "<li>" . $this->getPagelsLink() ."</li>" . "<li>" . $this->getVonSchantzLink() 
+		if(isset($_SESSION['edit'])) {
+			return "";
+		}
+		else {
+			return "<li>" . $this->getWelcomeLink() . "</li>" . "<li>" . $this->getPagelsLink() ."</li>" . "<li>" . $this->getVonSchantzLink() 
 				. "</li>" . "<li>" . $this->getOrbackLink() . "</li>". "<li>" .$this->getLoginLink() . "</li>";
+		}
+		
 	}
 
 	public function __construct(MessageView $messageView) {
@@ -20,19 +28,37 @@ class MainController {
 	public function isClicked() {
 		if(isset($_GET['pagelsLink'])) {
 			$this->messageView->setPagelsMessage();
+			$_SESSION['message'] = "pagels";
 		}
 		if(isset($_GET['vonSchantzLink'])) {
 			$this->messageView->setVonSchantzMessage();
+			$_SESSION['message'] = "vonSchantz";
 		}
 		if(isset($_GET['orbackLink'])) {
 			$this->messageView->setOrbackMessage();
+			$_SESSION['message'] = "orback";
 		}
 		if(isset($_GET['loginLink'])) {
 			$this->messageView->setLoginForm();
+			$_SESSION['message'] = "login";
 		}
 		if(isset($_GET['welcomeLink'])) {
 			$this->messageView->setWelcomeMessage();
+			$_SESSION['message'] = "welcome";
 		}
+		if($_SESSION['message'] == "welcome") {
+			$this->messageView->setNewWelcomeMessage();
+		}
+		if($_SESSION['message'] == "pagels") {
+			$this->messageView->setNewPagelsMessage();
+		}
+		if($_SESSION['message'] == "vonSchantz") {
+			$this->messageView->setNewVonSchantzMessage();
+		}
+		if($_SESSION['message'] == "orback") {
+			$this->messageView->setNewOrbackMessage();
+		}
+
 	}
 
 	public function getWelcomeLink() {
@@ -49,7 +75,6 @@ class MainController {
 	}
 	public function getLoginLink() {
 		return "<a href='?" . 'loginLink' . "'>Logga in</a>";
-	}
-	
+	}	
 
 }

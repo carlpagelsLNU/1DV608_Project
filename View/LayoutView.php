@@ -18,7 +18,8 @@ class LayoutView {
 				#page-background {position:fixed; top:0; left:0; width:100%; height:100%;}
 				#viewCount {position:fixed; bottom:0; right:0; width: 300px; text-align:right; padding:10px;}
 				#Links {position:relative; padding:10px;}
-				#WelcomeMessage {position:relative; width: 300px; text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px;}
+				#WelcomeMessage {position:relative; width: 730px; contenteditable="true" text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px;}
+				#EditButton {position:relative;}
 				ul {
 				    list-style-type: none;
 				    position:fixed;
@@ -58,7 +59,6 @@ class LayoutView {
           </div>
           <div id="WelcomeMessage">
           ' . $message . '
-
           </div>
          </body>
       </html>

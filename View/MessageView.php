@@ -28,22 +28,37 @@ class MessageView {
   public function getMessage() {
     return $this->message;
   }
-	
+	   //Set message when not logged in
 	public function setWelcomeMessage() {
 		  $this->message = $this->welcomeView->getWelcomeMessage();
 	}
-
+     //Set edited message
+  public function setNewWelcomeMessage() {
+    $this->welcomeView->setNewWelcomeMessage();
+  }
+    //Set message when not logged in
 	public function setOrbackMessage() {
-      $this->message = $this->orbackView->getOrbackInfo();
+      $this->message = $this->orbackView->getOrbackMessage();
 	}
-
+  public function setnewOrbackMessage() {
+      $this->orbackView->setNewOrbackMessage();
+  }
+      //Set message when not logged in
 	public function setPagelsMessage() {
-		$this->message = $this->pagelsView->getPagelsInfo();
+		$this->message = $this->pagelsView->getPagelsMessage();
 	}
-
+     //Set edited message
+   public function setNewPagelsMessage() {
+    $this->pagelsView->setNewPagelsMessage();
+  }
+     //Set message when not logged in
 	public function setVonSchantzMessage() {
-		$this->message = $this->vonSchantzView->getVonSchantzInfo();
+		$this->message = $this->vonSchantzView->getVonSchantzMessage();
 	}
+     //Set edited message
+   public function setNewVonSchantzMessage() {
+    $this->vonSchantzView->setNewVonSchantzMessage();
+  }
 
 	public function setLoginForm() {
     $this->message = $this->loginView->getLoginForm();
@@ -54,5 +69,4 @@ class MessageView {
     $mainController = new MainController($this);
    return $mainController->getLinks();
   }
-
 }

@@ -29,13 +29,12 @@ $loginController = new LoginController($loginModel);
 // Initiate views
 $lv = new LayoutView();
 $l = new LoginView($loginController);
-$ov = new OrbackView();
-$pv = new PagelsView();
-$vsv = new VonSchantzView();
-$wm = new WelcomeView();
+$ov = new OrbackView($loginController);
+$pv = new PagelsView($loginController);
+$vsv = new VonSchantzView($loginController);
+$wm = new WelcomeView($loginController);
 $hcv = new HitCounterView($hitCountController, $modelHitCounter);
 $wmv = new MessageView($l, $hcv, $ov, $pv, $vsv, $wm);
-
 $mainController = new MainController($wmv);
 
 $lv->render($wmv);

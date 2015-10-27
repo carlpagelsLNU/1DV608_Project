@@ -45,9 +45,9 @@ class LoginView {
 	          <legend> Logga in </legend>
 	          <p id="' . self::$messageId . '">' . $message . '</p>
 	          
-	          <label for="' . self::$name . '">Username: </label>
+	          <label for="' . self::$name . '">Användarnamn: </label>
 	          <input type="text" id="' . self::$name . '" name="' . self::$name . '" value="" />
-	          <label for="' . self::$password . '">Password: </label>
+	          <label for="' . self::$password . '">Lösenord: </label>
 	          <input type="password" id="' . self::$password . '" name="' . self::$password . '" />
 	          
 	          <input type="submit" name="' . self::$login . '" value="Logga in" />
