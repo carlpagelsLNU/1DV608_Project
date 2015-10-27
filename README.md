@@ -12,4 +12,4 @@ Email: cp222ep@student.lnu.se
 ###### Test cases for register function
 
 #### Live website
-[(www.cp222ep.comyr.com)]
+[(http://cp222epproject.hostei.com/)]
