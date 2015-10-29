@@ -14,9 +14,9 @@ class PagelsView {
       return $this->message;
     }
 
-		public function setMessage() {
-			 if($this->loginController->isSignedIn()) {
-        $this->message = '<form method = "POST" action = "">' . '<textarea id = "pagelsMessage" name = "pagelsMessage" rows =50" cols = "100">' . file_get_contents('./data/texts/PagelsMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
+	public function setMessage() {
+	 if($this->loginController->isSignedIn()) {
+         $this->message = '<form method = "POST" action = "">' . '<textarea id = "pagelsMessage" name = "pagelsMessage" rows =50" cols = "100">' . file_get_contents('./data/texts/PagelsMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
 
       }
       else {
