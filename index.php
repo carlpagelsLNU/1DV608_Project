@@ -10,6 +10,7 @@ require_once('view/PagelsView.php');
 require_once('view/VonSchantzView.php');
 require_once('view/WelcomeView.php');
 require_once('view/MessageView.php');
+require_once('view/CommentView.php');
 
 require_once('model/ModelHitCounter.php');
 require_once('model/LoginModel.php');
@@ -27,6 +28,7 @@ $hitCountController = new HitCountController($modelHitCounter);
 $loginController = new LoginController($loginModel);
 
 // Initiate views
+$cv = new CommentView();
 $lv = new LayoutView();
 $l = new LoginView($loginController);
 $ov = new OrbackView($loginController);
@@ -37,4 +39,4 @@ $hcv = new HitCounterView($hitCountController, $modelHitCounter);
 $wmv = new MessageView($l, $hcv, $ov, $pv, $vsv, $wm);
 $mainController = new MainController($wmv);
 
-$lv->render($wmv);
+$lv->render($wmv, $cv);

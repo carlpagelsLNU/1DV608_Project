@@ -1,10 +1,12 @@
 <?php
 
 class LayoutView {
-	public function render(MessageView $mv) {
+	public function render(MessageView $mv, CommentView $cv) {
 		$mainController = new MainController($mv);
 		$mainController->isClicked();
 		$message = $mv->getMessage();
+		$commentForm = $cv->getCommentForm();
+		$comments = $cv->getComments();
 
 	echo '<!DOCTYPE html>
       <html>
@@ -20,6 +22,9 @@ class LayoutView {
 				#Links {position:relative; padding:10px;}
 				#WelcomeMessage {position:relative; width: 730px; contenteditable="true" text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px;}
 				#EditButton {position:relative;}
+				#PostComment{position:fixed; top:0; right:0;  width: 300px;}
+				#Comments{position:fixed; top: 500; right: 0; width: 300px; height: 200px; color: #ffffff; background: rgba(0, 0, 0, .4); overflow:auto;}
+	
 				ul {
 				    list-style-type: none;
 				    position:fixed;
@@ -59,6 +64,12 @@ class LayoutView {
           </div>
           <div id="WelcomeMessage">
           ' . $message . '
+          </div>
+          <div id ="PostComment">
+       		' . $cv->getCommentForm() . ' 
+          </div>
+              <div id = "Comments">
+          '. $cv->getComments() .'
           </div>
          </body>
       </html>
