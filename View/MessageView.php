@@ -9,15 +9,17 @@ class MessageView {
   private $vonSchantzView;
   private $welcomeView;
   private $message;
+  private $commentView;
 
   public function __construct(LoginView $loginView, HitCounterView $hitCounterView, OrbackView $orbackView, 
-    PagelsView $pagelsView, VonSchantzView $vonSchantzView, WelcomeView $welcomeView) {
+    PagelsView $pagelsView, VonSchantzView $vonSchantzView, WelcomeView $welcomeView, CommentView $commentView) {
     $this->loginView = $loginView;
     $this->hitCounterView = $hitCounterView;
     $this->orbackView = $orbackView;
     $this->pagelsView = $pagelsView;
     $this->vonSchantzView = $vonSchantzView;
     $this->welcomeView = $welcomeView;
+    $this->commentView = $commentView;
     $message = $this->setWelcomeMessage();
   }
 
@@ -64,6 +66,13 @@ class MessageView {
     $this->message = $this->loginView->getLoginForm();
 
 	}
+
+  public function isCommentSent() {
+    $this->commentView->isCommentSent();
+  }
+  public function writeComment() {
+    $this->commentView->writeComment();
+  }
 
   public function getLinks() {
     $mainController = new MainController($this);

@@ -14,6 +14,18 @@ class CommentView {
 	}
 
 	public function getComments() {
-		return 'Kommentar nr 1';
+		if(file_exists('./data/comment.txt')) {
+			return file_get_contents('./data/comment.txt');
+		}
+	}
+
+	public function writeComment() {
+		$handle = fopen("comment.txt", "a");
+		$fwrite($handle, "<b>" . $name . "</b>:<br/>" . $comment . "<br/>");
+		fclose($handle);
+	}
+
+	public function isCommentSent() {
+		return $_POST["post"];
 	}
 }

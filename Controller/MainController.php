@@ -58,7 +58,9 @@ class MainController {
 		if($_SESSION['message'] == "orback") {
 			$this->messageView->setNewOrbackMessage();
 		}
-
+		if($this->messageView->isCommentSent()) {
+			$this->messageView->writeComment();
+		}
 	}
 
 	public function getWelcomeLink() {

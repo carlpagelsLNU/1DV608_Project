@@ -36,7 +36,7 @@ $pv = new PagelsView($loginController);
 $vsv = new VonSchantzView($loginController);
 $wm = new WelcomeView($loginController);
 $hcv = new HitCounterView($hitCountController, $modelHitCounter);
-$wmv = new MessageView($l, $hcv, $ov, $pv, $vsv, $wm);
+$wmv = new MessageView($l, $hcv, $ov, $pv, $vsv, $wm, $cv);
 $mainController = new MainController($wmv);
 
 $lv->render($wmv, $cv);
