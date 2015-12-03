@@ -19,21 +19,20 @@ class LayoutView {
 				html, body {height:100%; margin:0; padding:0;}
 				#page-background {position:fixed; top:0; left:0; width:100%; height:100%;}
 				#viewCount {position:fixed; bottom:0; right:0; width: 300px; text-align:right; padding:10px;}
-				#Links {position:relative; padding:10px;}
-				#WelcomeMessage {position:relative; width: 730px; contenteditable="true" text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px;}
+				#Links {position:relative; width: 1200px}
+				#WelcomeMessage {position:relative; width: 730px; contenteditable="true" text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px; border: 3px solid #000000}
 				#EditButton {position:relative;}
-				#PostComment{position:fixed; top:0; right:0;  width: 300px;}
-				#Comments{position:fixed; top: 500; right: 0; width: 300px; height: 200px; color: #ffffff; background: rgba(0, 0, 0, .4); overflow:auto;}
+				#PostComment{position:fixed; top:300; right:0; width: 300px; height: 400px; color: #ffffff; background: rgba(0, 0, 0, .4); overflow:auto; padding:10px; border: 3px solid #000000}
 	
 				ul {
 				    list-style-type: none;
-				    position:fixed;
+				    position:relative;
    					top:0px;
    					left:0px;
    					margin:0 auto;
 				    width:100%;
 				    padding: 0;
-				    overflow: hidden;
+				    overflow: auto;
 				}
 				li {
 				    float: left;
@@ -66,10 +65,8 @@ class LayoutView {
           ' . $message . '
           </div>
           <div id ="PostComment">
-       		' . $cv->getCommentForm() . ' 
-          </div>
-              <div id = "Comments">
-          '. $cv->getComments() .'
+       		' . $commentForm . 
+       			 $comments . ' 
           </div>
          </body>
       </html>

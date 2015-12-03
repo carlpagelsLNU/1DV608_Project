@@ -19,7 +19,7 @@ class WelcomeView {
 
     public function setMessage() {
       if($this->loginController->isSignedIn()) {
-        $this->message = '<form method = "POST" action = "">' . '<textarea id = "welcomeMessage" name = "welcomeMessage" rows =50" cols = "100">' . file_get_contents('./data/texts/WelcomeMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
+        $this->message = '<form method = "POST" action = "">' . '<textarea id = "welcomeMessage" name = "welcomeMessage" rows =25" cols = "100">' . file_get_contents('./data/texts/WelcomeMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
 
       }
       else {

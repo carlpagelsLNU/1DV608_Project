@@ -16,7 +16,7 @@ class VonSchantzView {
 
     public function setMessage() {
        if($this->loginController->isSignedIn()) {
-        $this->message = '<form method = "POST" action = "">' . '<textarea id = "vonSchantzMessage" name = "vonSchantzMessage" rows =50" cols = "100">' . file_get_contents('./data/texts/VonSchantzMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
+        $this->message = '<form method = "POST" action = "">' . '<textarea id = "vonSchantzMessage" name = "vonSchantzMessage" rows =25" cols = "100">' . file_get_contents('./data/texts/VonSchantzMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
 
       }
       else {

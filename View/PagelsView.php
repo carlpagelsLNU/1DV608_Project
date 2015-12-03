@@ -16,7 +16,7 @@ class PagelsView {
 
 	public function setMessage() {
 	 if($this->loginController->isSignedIn()) {
-         $this->message = '<form method = "POST" action = "">' . '<textarea id = "pagelsMessage" name = "pagelsMessage" rows =50" cols = "100">' . file_get_contents('./data/texts/PagelsMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
+         $this->message = '<form method = "POST" action = "">' . '<textarea id = "pagelsMessage" name = "pagelsMessage" rows =25" cols = "100">' . file_get_contents('./data/texts/PagelsMessage.txt') . '</textarea>' . '<input type="submit" name = "save" value="Spara"/>';
 
       }
       else {
