@@ -10,9 +10,9 @@ class CommentController {
 			return "Namnet får inte vara tomt";
 		if(strlen($content) < 1)
 			return "Kommentaren får inte vara tom";
-		if(!ctype_alnum($name))
+		if($name != strip_tags($name))
 			return "Otillåtna tecken i namn";
-		if(!ctype_alnum($content))
+		if($content != strip_tags($content))
 			return "Otillåtna tecken i kommentaren";
 
 		$handle = fopen("./data/comment.txt", "a+");
