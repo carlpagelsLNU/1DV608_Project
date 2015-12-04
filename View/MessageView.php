@@ -67,9 +67,14 @@ class MessageView {
 
 	}
 
-  public function isCommentSent() {
-    $this->commentView->isCommentSent();
+  public function getCommentName() {
+    return $this->commentView->getCommentName();
   }
+
+  public function getCommentContent() {
+    return $this->commentView->getCommentContent();
+  }
+
   public function writeComment() {
     $this->commentView->writeComment();
   }

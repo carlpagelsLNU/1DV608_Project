@@ -21,12 +21,12 @@ class LayoutView {
 				#viewCount {position:fixed; bottom:0; right:0; width: 300px; text-align:right; padding:10px;}
 				#Links {position:relative; width: 1200px}
 				#WelcomeMessage {position:relative; width: 730px; contenteditable="true" text-align:left; color: #ffffff; background: rgba(0, 0, 0, .4); padding:10px; border: 3px solid #000000}
+				#PostComment{position:fixed; top:50; right:0; width: 300px; height: 400px; overflow:auto; padding:10px;}
 				#EditButton {position:relative;}
-				#PostComment{position:fixed; top:300; right:0; width: 300px; height: 400px; color: #ffffff; background: rgba(0, 0, 0, .4); overflow:auto; padding:10px; border: 3px solid #000000}
 	
 				ul {
 				    list-style-type: none;
-				    position:relative;
+				    position:fixed;
    					top:0px;
    					left:0px;
    					margin:0 auto;

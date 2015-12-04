@@ -28,7 +28,7 @@ $hitCountController = new HitCountController($modelHitCounter);
 $loginController = new LoginController($loginModel);
 
 // Initiate views
-$cv = new CommentView();
+$cv = new CommentView($loginController);
 $lv = new LayoutView();
 $l = new LoginView($loginController);
 $ov = new OrbackView($loginController);
