@@ -1,3 +1,0 @@
-<b>Välkommen till Pagels.se, tills information för välkomstmeddelandet har skapats fylls den av lorem ipsum:</b>
-
-          <p>Mög</p>

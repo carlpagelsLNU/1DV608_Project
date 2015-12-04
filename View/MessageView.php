@@ -62,6 +62,8 @@ class MessageView {
 	   //Set message when not logged in
 	public function setWelcomeMessage() {
 		  $this->message = $this->welcomeView->getWelcomeMessage();
+      $this->setNewWelcomeMessage();
+   #   $_SESSION['message'] = "welcome";
 	}
      //Set edited message
   public function setNewWelcomeMessage() {
@@ -69,7 +71,9 @@ class MessageView {
   }
     //Set message when not logged in
 	public function setOrbackMessage() {
-      $this->message = $this->orbackView->getOrbackMessage();
+      $this->message = $this->orbackView->getOrbackMessage();  
+      $this->setNewOrbackMessage();   
+    #  $_SESSION['message'] = "orback";
 	}
   public function setnewOrbackMessage() {
       $this->orbackView->setNewOrbackMessage();
@@ -77,6 +81,8 @@ class MessageView {
       //Set message when not logged in
 	public function setPagelsMessage() {
 		$this->message = $this->pagelsView->getPagelsMessage();
+    $this->setNewPagelsMessage();   
+   # $_SESSION['message'] = "pagels";
 	}
      //Set edited message
    public function setNewPagelsMessage() {
@@ -85,6 +91,8 @@ class MessageView {
      //Set message when not logged in
 	public function setVonSchantzMessage() {
 		$this->message = $this->vonSchantzView->getVonSchantzMessage();
+    $this->setNewVonSchantzMessage(); 
+   # $_SESSION['message'] = "vonSchantz";
 	}
      //Set edited message
    public function setNewVonSchantzMessage() {
