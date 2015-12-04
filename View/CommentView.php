@@ -3,9 +3,12 @@
 class CommentView {
 
 	private $loginController;
+	private $message = "";
+	private $commentController;
 
-	public function __construct(LoginController $loginController) {
+	public function __construct(LoginController $loginController, CommentController $commentController) {
 		$this->loginController = $loginController;
+		$this->commentController = $commentController;
 	}
 
 
@@ -14,13 +17,23 @@ class CommentView {
 			return "";
 		else {
 			return '
-        	  <form action="" method="post">	
+        	  <form method="post">	
+
+          		<p id="message"><br>' . $this->message  . '</br></p>
           		<label> Namn: <br><input type="text" name ="name"></br></label>
           		<label> Kommentar:<br><textarea cols="30" rows="5" name ="content"></textarea></br></label>
           		<input type ="submit" name = "post" value = "Skicka kommentar">
           	  </form>';
          }
        
+	}
+
+	private function getMessage() {
+		return $this->message;
+	}
+
+	public function setMessage($message) {
+		$this->message = $message;
 	}
 
 	public function getComments() {
@@ -43,9 +56,9 @@ class CommentView {
 		if(isset($_POST["post"])) {
 			$name = $_POST["name"];
 			$content = $_POST["content"];
+			$this->setMessage($this->commentController->isCommentValid($name, $content));
 		}
-		$handle = fopen("./data/comment.txt", "a+");
-		fwrite($handle, "<b>". $name . "</b><br>" . $content  . "<br>");
-		fclose($handle);
+	
+		
 	}
 }

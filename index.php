@@ -18,6 +18,7 @@ require_once('model/LoginModel.php');
 require_once('controller/HitCountController.php');
 require_once('controller/LoginController.php');
 require_once('controller/MainController.php');
+require_once('controller/CommentController.php');
 
 // Initiate Models
 $modelHitCounter = new ModelHitCounter();
@@ -26,9 +27,10 @@ $loginModel = new LoginModel();
 // Initiate Controllers
 $hitCountController = new HitCountController($modelHitCounter);
 $loginController = new LoginController($loginModel);
+$commentController = new CommentController();
 
 // Initiate views
-$cv = new CommentView($loginController);
+$cv = new CommentView($loginController, $commentController);
 $lv = new LayoutView();
 $l = new LoginView($loginController);
 $ov = new OrbackView($loginController);

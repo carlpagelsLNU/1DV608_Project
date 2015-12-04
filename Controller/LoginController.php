@@ -9,8 +9,17 @@ class LoginController {
 	}
 
 	public function validateUser($user, $password) {
+		$userFile = fopen("./data/username.txt", "r"); #Not commited to github
+		$passwordFile = fopen("./data/password.txt", "r"); #Not commited to github
 
-		if($user == 'Lena' && $password == 'Pagels') {
+		$usernameFromFile = $userFile = fgets($userFile, 1000);
+		$passwordFromFile = $passwordFile = fgets($passwordFile, 1000);
+
+		if(strlen($user) < 1)
+			$this->setMessage("Användarnamnet får inte vara tomt");
+		else if(strlen($password) < 1)
+					$this->setMessage("Lösenordet får inte vara tomt");
+		else if($user == $usernameFromFile && $password == $passwordFromFile) {
 			$this->setSessionTrue();
 		}
 		else {

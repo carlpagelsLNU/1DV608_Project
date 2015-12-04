@@ -2,6 +2,12 @@
 
 
 class MessageView {
+  private $pagelsLink = 'pagelsLink';
+  private $vonSchantzLink = 'vonSchantzLink';
+  private $orbackLink = 'orbackLink';
+  private $loginLink = 'loginLink';
+  private $editButton = 'editButton';
+  private $saveButton = 'saveButton';
   private $loginView;
   private $hitCounterView;
   private $orbackView;
@@ -25,6 +31,29 @@ class MessageView {
 
   public function showHitCount() {
     return $this->hitCounterView->getHitCount();
+  }
+
+  #Check if messages are set
+
+  public function isPagelsSet() {
+    if(isset($_GET['pagelsLink']))
+      return true;
+    return false;
+  }
+  public function isVonSchantzSet() {
+    if(isset($_GET['vonSchantzLink']))
+      return true;
+    return false;
+  } 
+  public function isOrbackSet() {
+    if(isset($_GET['orbackLink']))
+      return true;
+    return false;
+  } 
+  public function isLoginSet() {
+    if(isset($_GET['loginLink']))
+      return true;
+    return false;
   }
 
   public function getMessage() {
@@ -61,26 +90,42 @@ class MessageView {
    public function setNewVonSchantzMessage() {
     $this->vonSchantzView->setNewVonSchantzMessage();
   }
-
 	public function setLoginForm() {
     $this->message = $this->loginView->getLoginForm();
 
 	}
-
   public function getCommentName() {
     return $this->commentView->getCommentName();
   }
-
   public function getCommentContent() {
     return $this->commentView->getCommentContent();
   }
-
   public function writeComment() {
     $this->commentView->writeComment();
   }
-
-  public function getLinks() {
-    $mainController = new MainController($this);
-   return $mainController->getLinks();
-  }
+    public function getLinks() {
+    if(isset($_SESSION['edit'])) {
+      return "";
+    }
+    else {
+      return "<li>" . $this->getWelcomeLink() . "</li>" . "<li>" . $this->getPagelsLink() ."</li>" . "<li>" . $this->getVonSchantzLink() 
+        . "</li>" . "<li>" . $this->getOrbackLink() . "</li>". "<li>" .$this->getLoginLink() . "</li>";
+    }
+    
+  } 
+   public function getWelcomeLink() {
+     return "<a href='?" . 'welcomeLink' . "'>Hem</a>";
+   }
+   public function getPagelsLink() {
+     return "<a href='?" . 'pagelsLink' . "'>Pagels släktforskning</a>";
+   }
+   public function getVonSchantzLink() {
+     return "<a href='?" . 'vonSchantzLink' . "'>von Schantz släktforskning</a>";
+   }
+   public function getOrbackLink() {
+      return "<a href='?" . 'orbackLink' . "'>Information om Örbäck</a>";
+    }
+    public function getLoginLink() {
+      return "<a href='?" . 'loginLink' . "'>Logga in</a>";
+   } 
 }
